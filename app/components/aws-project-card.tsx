@@ -1,33 +1,27 @@
 "use client"
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Github, Smartphone } from "lucide-react"
+import { Github } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
-import ProjectModal from "./project-modal"
-import CGPAModal from "./cgpa-modal"
-import QuizMasterModal from "./quizmaster-modal"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
-interface ProjectCardProps {
-  title: string
-  description: string
-  image: string
-  link: string
-  tags: string[]
-  showModal?: boolean
-  isMobileApp?: boolean
+interface AWSProjectCardProps {
+  title?: string
+  description?: string
+  image?: string
+  link?: string
+  tags?: string[]
 }
 
-export default function ProjectCard({
-  title,
-  description,
-  image,
-  link,
-  tags,
-  showModal,
-  isMobileApp,
-}: ProjectCardProps) {
+export default function AWSProjectCard({
+  title = "Multi-tier HA & Scalable AWS Infrastructure",
+  description = "Deployed a highly available and scalable web application on AWS EC2 instances with Elastic Load Balancer, utilizing multiple availability zones for high reliability and fault tolerance.",
+  image = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AWS%203in1%20Final%20project%20%28V1.0%29_page-0001.jpg-l7NdZtjVJBbe9zVHaBzVLd5Zl8x8R5.jpeg",
+  link = "https://github.com/huzaifalidev",
+  tags = ["AWS", "EC2", "RDS", "VPC", "Load Balancer", "Auto Scaling", "High Availability"],
+}: AWSProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
 
@@ -37,7 +31,7 @@ export default function ProjectCard({
         className="overflow-hidden group transition-all duration-300 hover:shadow-lg border-muted hover:border-primary/20 cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={() => showModal && setModalOpen(true)}
+        onClick={() => setModalOpen(true)}
       >
         <div className="relative aspect-video overflow-hidden">
           <Image
@@ -47,19 +41,6 @@ export default function ProjectCard({
             className={`object-cover transition-transform duration-500 ${isHovered ? "scale-110" : "scale-100"}`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-          {isMobileApp && (
-            <div className="absolute top-2 right-2 bg-primary/90 text-primary-foreground rounded-full p-1.5">
-              <Smartphone className="h-4 w-4" />
-            </div>
-          )}
-
-          {showModal && (
-            <div className="absolute bottom-3 right-3 bg-white/90 dark:bg-gray-800/90 text-foreground rounded-full px-3 py-1 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5">
-              <Smartphone className="h-3 w-3" />
-              View Screenshots
-            </div>
-          )}
         </div>
         <CardContent className="p-6">
           <h3 className="font-semibold text-xl mb-3 group-hover:text-primary transition-colors">{title}</h3>
@@ -80,21 +61,31 @@ export default function ProjectCard({
             href={link}
             target="_blank"
             className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-            onClick={(e) => e.stopPropagation()}
           >
             <Github className="h-4 w-4" />
             View on GitHub
           </Link>
         </CardFooter>
       </Card>
-      {showModal &&
-        (title === "CGPA Calculator" ? (
-          <CGPAModal open={modalOpen} onOpenChange={setModalOpen} />
-        ) : title.includes("QuizMaster") ? (
-          <QuizMasterModal open={modalOpen} onOpenChange={setModalOpen} />
-        ) : (
-          <ProjectModal open={modalOpen} onOpenChange={setModalOpen} />
-        ))}
+      <Dialog open={modalOpen} onOpenChange={(open) => setModalOpen(open)}>
+        <DialogContent className="sm:max-w-3xl md:max-w-4xl">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
+          </DialogHeader>
+          <div className="flex flex-col items-center justify-center mt-4">
+            <div className="relative mx-auto w-full">
+              <div className="relative rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 shadow-lg">
+                <div className="relative aspect-[16/9] w-full">
+                  <Image src={image || "/placeholder.svg"} alt={title} fill className="object-contain" priority />
+                </div>
+              </div>
+            </div>
+            <div className="text-center mt-6">
+              <p className="text-sm text-muted-foreground mt-1">{description}</p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   )
 }

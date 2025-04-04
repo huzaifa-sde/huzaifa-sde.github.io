@@ -12,6 +12,8 @@ import EducationTree from "./components/education-tree"
 import ExperienceTimeline from "./components/experience-timeline"
 import WhatsAppModal from "./components/whatsapp-modal"
 import { useState } from "react"
+import LicensesSection from "./components/licenses-section"
+import AWSProjectCard from "./components/aws-project-card"
 
 const educationItems = [
   {
@@ -62,6 +64,14 @@ const experienceItems = [
 
 export default function Page() {
   const [whatsappModalOpen, setWhatsappModalOpen] = useState(false)
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact")
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -144,21 +154,30 @@ export default function Page() {
                   complex problems with a passion for clean code and user-centered design.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button size="lg" className="rounded-full">
+                  <Button
+                    size="lg"
+                    className="rounded-full"
+                    onClick={() => {
+                      const projectsSection = document.getElementById("projects")
+                      if (projectsSection) {
+                        projectsSection.scrollIntoView({ behavior: "smooth" })
+                      }
+                    }}
+                  >
                     View Projects
                   </Button>
-                  <Button variant="outline" size="lg" className="rounded-full">
+                  <Button variant="outline" size="lg" className="rounded-full" onClick={scrollToContact}>
                     Contact Me
                   </Button>
                 </div>
                 <div className="flex items-center gap-4 pt-4">
-                  <Link href="https://github.com/Huzaifa-Ali-Khan" target="_blank">
+                  <Link href="https://github.com/huzaifalidev" target="_blank">
                     <Button variant="ghost" size="icon" className="rounded-full h-10 w-10">
                       <Github className="h-5 w-5" />
                       <span className="sr-only">GitHub</span>
                     </Button>
                   </Link>
-                  <Link href="linkedin.com/in/huzaifa-ali-09aa38247" target="_blank">
+                  <Link href="https://linkedin.com/in/huzaifa-ali-09aa38247" target="_blank">
                     <Button variant="ghost" size="icon" className="rounded-full h-10 w-10">
                       <Linkedin className="h-5 w-5" />
                       <span className="sr-only">LinkedIn</span>
@@ -219,6 +238,8 @@ export default function Page() {
           </div>
         </section>
 
+        <LicensesSection />
+
         <section id="projects" className="py-20 md:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center text-center mb-12">
@@ -235,7 +256,7 @@ export default function Page() {
                 title="TaskMate (FYP)"
                 description="TaskMate is mobile application connects clients with skilled Service Providers like plumbers, electricians, and mechanics."
                 image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SplashScreen-Vj4qGuiVsCohOyhxOKy1nyv8pcfhz8.png"
-                link="https://github.com"
+                link="https://github.com/huzaifalidev"
                 tags={["React Native", "Node.js", "MongoDB", "Figma", "SRS"]}
                 showModal={true}
                 isMobileApp={true}
@@ -244,21 +265,31 @@ export default function Page() {
                 title="CGPA Calculator"
                 description="A mobile app for calculating university CGPA with dynamic course addition, grade selection, and real-time GPA calculation."
                 image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/splash-icon-0rhhsBtGLGVL19umbEg0etFCsIPjZy.png"
-                link="https://github.com/Huzaifa-Ali-Khan/CGPA-Calculator"
+                link="https://github.com/huzaifalidev"
                 tags={["React Native", "JavaScript", "Mobile UI/UX"]}
                 showModal={true}
                 isMobileApp={true}
               />
               <ProjectCard
-                title="AI Chat Interface"
-                description="An AI-powered chat interface with natural language processing capabilities."
-                image="/placeholder.svg?height=400&width=600"
-                link="https://github.com"
-                tags={["OpenAI", "Next.js", "TailwindCSS"]}
+                title="QuizMaster : SaaS-Based Quiz Platform"
+                description="QuizMaster is an AI-powered SaaS quiz platform for education, training, and assessments. It lets organizations create, manage, and deliver smart quizzes with AI-generated questions, strict anti-cheating (tab switch detection, proctoring), and detailed performance reports."
+                image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-27%20140922-2auuDp2XZk0lYE6b8Zl23TcRqi9H4q.png"
+                link="https://github.com/huzaifalidev"
+                tags={["Next.js", "TailwindCSS", "Node.js", "MongoDB", "Oracle Cloud", "Nginx", "Docker", "CI/CD"]}
+                showModal={true}
+                isMobileApp={false}
               />
+
+              <AWSProjectCard />
             </div>
             <div className="mt-12 text-center">
-              <Button variant="outline" className="rounded-full">
+              <Button
+                variant="outline"
+                className="rounded-full"
+                onClick={() => {
+                  window.open("https://github.com/huzaifalidev", "_blank")
+                }}
+              >
                 View All Projects
               </Button>
             </div>
@@ -339,7 +370,7 @@ export default function Page() {
                 <ul className="space-y-2">
                   <li>
                     <Link
-                      href="https://github.com/Huzaifa-Ali-Khan"
+                      href="https://github.com/huzaifalidev"
                       className="text-sm text-muted-foreground hover:text-foreground"
                     >
                       GitHub
@@ -347,7 +378,7 @@ export default function Page() {
                   </li>
                   <li>
                     <Link
-                      href="linkedin.com/in/huzaifa-ali-09aa38247"
+                      href="https://linkedin.com/in/huzaifa-ali-09aa38247"
                       className="text-sm text-muted-foreground hover:text-foreground"
                     >
                       LinkedIn
@@ -391,12 +422,12 @@ export default function Page() {
           <div className="mt-12 border-t pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-xs text-muted-foreground">© 2025 Huzaifa Ali. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="https://github.com/Huzaifa-Ali-Khan" className="text-muted-foreground hover:text-foreground">
+              <Link href="https://github.com/huzaifalidev" className="text-muted-foreground hover:text-foreground">
                 <Github className="h-4 w-4" />
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="linkedin.com/in/huzaifa-ali-09aa38247"
+                href="https://linkedin.com/in/huzaifa-ali-09aa38247"
                 className="text-muted-foreground hover:text-foreground"
               >
                 <Linkedin className="h-4 w-4" />
