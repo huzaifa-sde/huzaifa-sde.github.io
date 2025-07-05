@@ -147,7 +147,7 @@ export default function Page() {
                 </div>
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl/none">
                   <span className="block">Hi, I'm Huzaifa Ali</span>
-                  <span className="block mt-2 text-primary">Full Stack Developer</span>
+                  <span className="block mt-2 text-primary">Software Engineer</span>
                 </h1>
                 <p className="text-lg text-muted-foreground md:text-xl">
                   Building digital experiences with modern technologies. Focused on creating elegant solutions to
