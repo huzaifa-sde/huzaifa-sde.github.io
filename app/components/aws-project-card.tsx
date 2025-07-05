@@ -24,7 +24,6 @@ export default function AWSProjectCard({
 }: AWSProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
-
   return (
     <>
       <Card

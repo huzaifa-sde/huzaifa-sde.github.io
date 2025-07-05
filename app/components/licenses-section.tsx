@@ -41,7 +41,7 @@ export default function LicensesSection() {
             <Link
               href="https://www.credly.com/badges/db14a578-1497-4b58-9b97-07ac28ef1268"
               target="_blank"
-              className="w-[150px] h-[150px] relative mb-4 block cursor-pointer transition-transform hover:scale-105"
+              className="w-[250px] h-[250px] relative mb-4 block cursor-pointer transition-transform hover:scale-105"
             >
               <Image
                 src="/assets/certifications/javascript-essentials-1.png"
@@ -63,7 +63,7 @@ export default function LicensesSection() {
             <Link
               href="https://www.credly.com/badges/4f996bcd-e7b1-404e-adbe-13d2502d21d2"
               target="_blank"
-              className="w-[150px] h-[150px] relative mb-4 block cursor-pointer transition-transform hover:scale-105"
+              className="w-[250px] h-[250px] relative mb-4 block cursor-pointer transition-transform hover:scale-105"
             >
               <Image
                 src="assets/certifications/javascript-essentials-2.png"

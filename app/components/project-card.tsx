@@ -12,7 +12,7 @@ import QuizMasterModal from "./quizmaster-modal"
 interface ProjectCardProps {
   title: string
   description: string
-  image: string
+  image: string[]
   link: string
   tags: string[]
   showModal?: boolean

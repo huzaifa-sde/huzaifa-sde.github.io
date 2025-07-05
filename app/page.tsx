@@ -14,54 +14,7 @@ import WhatsAppModal from "./components/whatsapp-modal";
 import { useState } from "react";
 import LicensesSection from "./components/licenses-section";
 import AWSProjectCard from "./components/aws-project-card";
-
-const educationItems = [
-  {
-    title: "Bachelor of Computer Science",
-    institution: "SZABIST University",
-    period: "01/2021 - 01/2025",
-  },
-  {
-    title: "Modern Web Application",
-    institution: "SMIT Karachi",
-    period: "09/2024 - Present",
-  },
-  {
-    title: "AWS Cloud",
-    institution: "SHERDIL IT Karachi",
-    period: "05/2024 - 09/2024",
-  },
-];
-
-const experienceItems = [
-  {
-    title: "Software Engineer",
-    company: "SAYLANI TECH LIMITED",
-    location: "Karachi, Pakistan",
-    period: "10/2024 - Present",
-    responsibilities: [
-      "Led Development Team: Managed frontend and backend development, ensuring smooth project execution.",
-      "Project & Task Management: Organized meetings, assigned tasks, and tracked progress.",
-      "GitHub Management: Handled version control, code reviews, and collaboration.",
-      "UI/UX Improvements: Enhanced design for a better user experience.",
-      "Backend Development: Built secure and scalable APIs using Node.",
-      "Presentations & Reports: Provided updates to stakeholders and team members.",
-      "Deployment & Maintenance: Managed deployment, performance tuning, and system optimization.",
-    ],
-  },
-  {
-    title: "Intern Software Engineer",
-    company: "AFROZE TEXTILE",
-    location: "Karachi, Pakistan",
-    period: "06/2024 - 08/2024",
-    responsibilities: [
-      "Supported the IT team by troubleshooting network issues, setting up hardware, and ensuring smooth IT operations.",
-      "Learned key concepts like resource management, troubleshooting, and optimizing performance in an on-premises environment.",
-      "Gained hands-on experience in managing physical servers, networks, and systems.",
-    ],
-  },
-];
-
+import { educationItems, experienceItems, projects } from "./lib/data";
 export default function Page() {
   const [whatsappModalOpen, setWhatsappModalOpen] = useState(false);
 
@@ -122,7 +75,7 @@ export default function Page() {
               <Link
                 target="_blank"
                 href="/assets/resume/Huzaifa_Ali_Resume.pdf"
-                // download="Huzaifa_Ali_Resume.pdf"
+              // download="Huzaifa_Ali_Resume.pdf"
               >
                 <svg
                   width="16"
@@ -162,7 +115,7 @@ export default function Page() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-12">
               <div className="space-y-6 max-w-2xl">
                 <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                  🟢 Available for freelance work
+                  Available for freelance work
                 </div>
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl/none">
                   <span className="block">Hi, I'm Huzaifa Ali</span>
@@ -343,8 +296,25 @@ export default function Page() {
                 showModal={true}
                 isMobileApp={false}
               />
-
-              <AWSProjectCard />
+              <ProjectCard
+                title="Multi-tier HA & Scalable AWS Infrastructure"
+                description="Deployed a highly available and scalable web application on AWS EC2 instances with Elastic Load Balancer, utilizing multiple availability zones for high reliability and fault tolerance."
+                image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AWS%203in1%20Final%20project%20%28V1.0%29_page-0001.jpg-l7NdZtjVJBbe9zVHaBzVLd5Zl8x8R5.jpeg"
+                link="https://github.com/huzaifalidev"
+                tags={["AWS", "EC2", "RDS", "VPC", "Load Balancer", "Auto Scaling", "High Availability"]}
+                showModal={true}
+                isMobileApp={false}
+              />
+              <ProjectCard
+                title="Decentralized NFT Auction"
+                description="A decentralized auction platform for NFTs, allowing users to create, bid, and manage NFT auctions securely on the blockchain."
+                image="assets/decentralized-auction/1.png"
+                link="https://github.com/huzaifalidev"
+                tags={["Solidity", "Meta Mask", "Hardhat", "IPFS", "React Js", "Nest Js", "MongoDB", "Shadcn UI"]}
+                showModal={true}
+                isMobileApp={false}
+              />
+              {/* <AWSProjectCard /> */}
             </div>
             <div className="mt-12 text-center">
               <Button
