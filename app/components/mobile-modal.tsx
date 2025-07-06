@@ -21,7 +21,7 @@ interface ProjectImage {
 interface ProjectData {
   title: string;
   description: string;
-  images: 
+  images:
     | string[]
     | Array<{
         url: string;
@@ -52,14 +52,14 @@ export default function MobileModal({
   // Convert images to ProjectImage[] format
   const projectImages: ProjectImage[] = useMemo(() => {
     if (!project.images || project.images.length === 0) return [];
-    
-    if (typeof project.images[0] === 'string') {
+
+    if (typeof project.images[0] === "string") {
       // Handle string array
       return (project.images as string[]).map((url, index) => ({
         url,
         title: `Image ${index + 1}`,
         description: `${project.title} screenshot`,
-        category: 'general'
+        category: "general",
       }));
     } else {
       // Handle ProjectImage array
@@ -106,7 +106,7 @@ export default function MobileModal({
             {project.title}
           </DialogTitle>
           <p className="text-sm text-muted-foreground">{project.description}</p>
-          <div className="flex gap-2 overflow-x-auto py-2 px-1 -mx-1">
+          <div className="flex flex-wrap gap-2 overflow-x-auto py-2 px-1 -mx-1">
             {categories.map((category) => (
               <button
                 key={category.id}
