@@ -1,46 +1,52 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Github, Smartphone } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { useState } from "react"
-import ProjectModal from "./project-modal"
-import CGPAModal from "./mobile-modal"
-import QuizMasterModal from "./web-modal"
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Github, Monitor, Smartphone } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 interface ProjectData {
-  title: string
-  description: string
-  images: string[] | Array<{
-    url: string
-    title: string
-    description: string
-    category: string
-  }>
-  link: string
-  tags: string[]
-  showModal?: boolean
-  isMobileApp?: boolean
+  title: string;
+  description: string;
+  images:
+    | string[]
+    | Array<{
+        url: string;
+        title: string;
+        description: string;
+        category: string;
+      }>;
+  link: string;
+  tags: string[];
+  showModal?: boolean;
+  isMobileApp?: boolean;
 }
 
 interface ProjectCardProps {
-  project: ProjectData
-  onOpenModal?: () => void
+  project: ProjectData;
+  onOpenModal?: () => void;
 }
 
-export default function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
+export default function ProjectCard({
+  project,
+  onOpenModal,
+}: ProjectCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
 
-  const { title, description, images, link, tags, showModal, isMobileApp } = project
+  const { title, description, images, link, tags, showModal, isMobileApp } =
+    project;
 
   // Get the main image (first image or URL from complex image object)
-  const mainImage = Array.isArray(images) && images.length > 0 
-    ? (typeof images[0] === 'string' ? images[0] : images[0].url)
-    : "/placeholder.svg"
+  const mainImage =
+    Array.isArray(images) && images.length > 0
+      ? typeof images[0] === "string"
+        ? images[0]
+        : images[0].url
+      : "/placeholder.svg";
 
   return (
-  <>
+    <>
       <Card
         className="overflow-hidden group transition-all duration-300 hover:shadow-lg border-muted hover:border-primary/20 cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
@@ -52,25 +58,40 @@ export default function ProjectCard({ project, onOpenModal }: ProjectCardProps) 
             src={mainImage}
             alt={title}
             fill
-            className={`object-cover transition-transform duration-500 ${isHovered ? "scale-110" : "scale-100"}`}
+            className={`object-cover transition-transform duration-500 ${
+              isHovered ? "scale-110" : "scale-100"
+            }`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-          {isMobileApp && (
+          {isMobileApp ? (
             <div className="absolute top-2 right-2 bg-primary/90 text-primary-foreground rounded-full p-1.5">
               <Smartphone className="h-4 w-4" />
             </div>
+          ) : (
+            <div className="absolute top-2 right-2 bg-primary/90 text-primary-foreground rounded-full p-1.5">
+              <Monitor className="h-4 w-4" />
+            </div>
           )}
 
-          {showModal && (
+          {showModal && isMobileApp ? (
             <div className="absolute bottom-3 right-3 bg-white/90 dark:bg-gray-800/90 text-foreground rounded-full px-3 py-1 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5">
               <Smartphone className="h-3 w-3" />
               View Screenshots
             </div>
+          ) : (
+            <div className="absolute bottom-3 right-3 bg-white/90 dark:bg-gray-800/90 text-foreground rounded-full px-3 py-1 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="flex items-center gap-1.5">
+                <Monitor className="h-3 w-3" />
+                View Project
+              </span>
+            </div>
           )}
         </div>
         <CardContent className="p-6">
-          <h3 className="font-semibold text-xl mb-3 group-hover:text-primary transition-colors">{title}</h3>
+          <h3 className="font-semibold text-xl mb-3 group-hover:text-primary transition-colors">
+            {title}
+          </h3>
           <p className="text-sm text-muted-foreground mb-4">{description}</p>
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
@@ -104,5 +125,5 @@ export default function ProjectCard({ project, onOpenModal }: ProjectCardProps) 
           <ProjectModal open={modalOpen} onOpenChange={setModalOpen} />
         ))} */}
     </>
-  )
+  );
 }

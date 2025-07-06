@@ -1,24 +1,80 @@
-
 export const projects = [
   {
     title: "TaskMate (FYP)",
     description:
       "TaskMate is mobile application connects clients with skilled Service Providers like plumbers, electricians, and mechanics.",
     images: [
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SplashScreen-Vj4qGuiVsCohOyhxOKy1nyv8pcfhz8.png",
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SplashScreen-Vj4qGuiVsCohOyhxOKy1nyv8pcfhz8.png",
+        title: "Splash Screen",
+        description: "Initial loading screen with TaskMate branding",
+        category: "onboarding",
+      },
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-blPwZq8T1cDmcUpqqxdnOZnX9OhEpa.png",
+        title: "Service Selection",
+        description: "Choose a service provider from the list",
+        category: "onboarding",
+      },
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-4hdqtG3iApKP5u9Ooubv8C9nLTUohd.png",
+        title: "Booking Confirmation",
+        description: "Confirm your booking details before proceeding",
+        category: "onboarding",
+      },
     ],
     link: "https://github.com/huzaifalidev",
     tags: ["React Native", "Node.js", "MongoDB", "Figma", "SRS"],
+    showModal: true,
+    isMobileApp: true,
   },
   {
     title: "CGPA Calculator",
     description:
       "A mobile app for calculating university CGPA with dynamic course addition, grade selection, and real-time GPA calculation.",
     images: [
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/splash-icon-0rhhsBtGLGVL19umbEg0etFCsIPjZy.png",
+      {
+        url: "assets/projects/cgpa-calculator/splash-screen.jpg",
+        title: "Splash Screen",
+        description: "Initial loading screen with CGPA Calculator branding",
+        category: "onboarding",
+      },
+      {
+        url: "assets/projects/cgpa-calculator/1.png",
+        title: "Add Course information",
+        description:
+          "Add course details including name, credit hours, and grade",
+        category: "main",
+      },
+      {
+        url: "assets/projects/cgpa-calculator/2.png",
+        title: "Result Screen",
+        description: "View your calculated GPA",
+        category: "result",
+      },
+      {
+        url: "assets/projects/cgpa-calculator/4.png",
+        title: "Grade selection",
+        description: "Select your grade for each course",
+        category: "grade-selection",
+      },
+      {
+        url: "assets/projects/cgpa-calculator/5.png",
+        title: "Credits hours selection",
+        description: "Select the credit hours for each course",
+        category: "credits-selection",
+      },
+      {
+        url: "assets/projects/cgpa-calculator/6.png",
+        title: "Validations",
+        description: "Ensure all fields are filled correctly",
+        category: "validations",
+      },
     ],
     link: "https://github.com/huzaifalidev",
     tags: ["React Native", "JavaScript", "Mobile UI/UX"],
+    showModal: true,
+    isMobileApp: true,
   },
   {
     title: "QuizMaster : SaaS-Based Quiz Platform",
@@ -100,19 +156,20 @@ export const projects = [
       "Deployed a highly available and scalable web application on AWS EC2 instances with Elastic Load Balancer, utilizing multiple availability zones for high reliability and fault tolerance.",
     images: [
       {
-      url:"assets/projects/aws/2.jpg",
-      title: "AWS Infrastructure Diagram",
-      description:
-        "Architecture diagram showing the multi-tier setup with EC2, RDS, VPC, and Load Balancer.",
-      category: "architecture",
-    },{
-      url:"assets/projects/aws/1.png",
-      title: "AWS Deployment Diagram",
-      description:
-        "Deployment diagram illustrating the AWS services used in the architecture.",
-      category: "architecture",
-    },
-  ],
+        url: "assets/projects/aws/2.jpg",
+        title: "AWS Infrastructure Diagram",
+        description:
+          "Architecture diagram showing the multi-tier setup with EC2, RDS, VPC, and Load Balancer.",
+        category: "architecture",
+      },
+      {
+        url: "assets/projects/aws/1.png",
+        title: "AWS Deployment Diagram",
+        description:
+          "Deployment diagram illustrating the AWS services used in the architecture.",
+        category: "architecture",
+      },
+    ],
     link: "https://github.com/huzaifalidev",
     tags: [
       "AWS",
@@ -122,6 +179,47 @@ export const projects = [
       "Load Balancer",
       "Auto Scaling",
       "High Availability",
+    ],
+    showModal: true,
+    isMobileApp: false,
+  },
+  {
+    title: "TaskMate Admin Portal",
+    description:
+      "A web-based admin portal for managing tasks and projects within the TaskMate application.",
+    images: [
+      {
+        url: "assets/projects/admin-portal/1.png",
+        title: "Task Management Interface",
+        description:
+          "User interface for creating and managing tasks within the TaskMate application.",
+        category: "interface",
+      },
+      {
+        url: "assets/projects/admin-portal/signin.png",
+        title: "Task Dashboard",
+        description:
+          "Dashboard for monitoring and managing tasks within the TaskMate application.",
+        category: "interface",
+      },
+      {
+        url: "assets/projects/admin-portal/signup.png",
+        title: "Task Analytics",
+        description:
+          "Interface for visualizing task data and analytics within the TaskMate application.",
+        category: "interface",
+      },
+    ],
+    link: "https://github.com/huzaifalidev",
+    tags: [
+      "Solidity",
+      "Meta Mask",
+      "Hardhat",
+      "IPFS",
+      "React Js",
+      "Nest Js",
+      "MongoDB",
+      "Shadcn UI",
     ],
     showModal: true,
     isMobileApp: false,
@@ -148,10 +246,9 @@ export const projects = [
       {
         url: "assets/projects/decentralized-auction/3.png",
         title: "NFT Auction Bidding",
-        description:
-          "Interface for placing bids on NFT auctions securely.",
+        description: "Interface for placing bids on NFT auctions securely.",
         category: "interface",
-      }
+      },
     ],
     link: "https://github.com/huzaifalidev",
     tags: [

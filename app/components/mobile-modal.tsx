@@ -1,106 +1,120 @@
-"use client"
+"use client";
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import Image from "next/image"
-import { useState } from "react"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { useMemo, useState } from "react";
 
 interface ProjectImage {
-  url: string
-  title: string
-  description: string
-  category: string
+  url: string;
+  title: string;
+  description: string;
+  category: string;
 }
 
-interface CGPAModalProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
+interface ProjectData {
+  title: string;
+  description: string;
+  images: 
+    | string[]
+    | Array<{
+        url: string;
+        title: string;
+        description: string;
+        category: string;
+      }>;
+  link?: string;
+  tags?: string[];
+  showModal?: boolean;
+  isMobileApp?: boolean;
 }
 
-export default function CGPAModal({ open, onOpenChange }: CGPAModalProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [selectedCategory, setSelectedCategory] = useState<string>("all")
+interface MobileModalProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  project: ProjectData;
+}
 
-  const projectImages: ProjectImage[] = [
-    {
-      url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/splash-icon-0rhhsBtGLGVL19umbEg0etFCsIPjZy.png",
-      title: "CGPA Calculator",
-      description: "Modern splash screen with dynamic educational elements",
-      category: "main",
-    },
-    {
-      url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-blPwZq8T1cDmcUpqqxdnOZnX9OhEpa.png",
-      title: "Course List",
-      description: "Main interface showing multiple courses with their credits and grades",
-      category: "main",
-    },
-    {
-      url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-4hdqtG3iApKP5u9Ooubv8C9nLTUohd.png",
-      title: "GPA Result",
-      description: "Popup showing the calculated GPA result (3.50)",
-      category: "result",
-    },
-    {
-      url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-m3Wy9iXEjDPOSQOtEeTIzRFmthExsi.png",
-      title: "New Course Entry",
-      description: "Empty form for adding a new course with default values",
-      category: "input",
-    },
-    {
-      url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-ZfpOkUwkF0J7D4HAN1NZgChOU9X8I5.png",
-      title: "Grade Selection",
-      description: "Dropdown menu for selecting course grades from A+ to C-",
-      category: "input",
-    },
-    {
-      url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5-Vjz9eXo8eDJlxpY9rPv1gNAxWDWsZj.png",
-      title: "Credit Hours",
-      description: "Credit hours selection with options 1-3",
-      category: "input",
-    },
-    {
-      url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6-gJUCmThzSOm7JYSXxgJc1jSZvpSe6W.png",
-      title: "Validation",
-      description: "Error message showing course name validation",
-      category: "validation",
-    },
-  ]
+export default function MobileModal({
+  open,
+  onOpenChange,
+  project,
+}: MobileModalProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-  const categories = [
-    { id: "all", label: "All" },
-    { id: "main", label: "Main View" },
-    { id: "input", label: "Input Options" },
-    { id: "result", label: "Results" },
-    { id: "validation", label: "Validation" },
-  ]
+  // Convert images to ProjectImage[] format
+  const projectImages: ProjectImage[] = useMemo(() => {
+    if (!project.images || project.images.length === 0) return [];
+    
+    if (typeof project.images[0] === 'string') {
+      // Handle string array
+      return (project.images as string[]).map((url, index) => ({
+        url,
+        title: `Image ${index + 1}`,
+        description: `${project.title} screenshot`,
+        category: 'general'
+      }));
+    } else {
+      // Handle ProjectImage array
+      return project.images as ProjectImage[];
+    }
+  }, [project.images, project.title]);
+
+  const categories = useMemo(() => {
+    const unique = Array.from(
+      new Set(projectImages.map((img) => img.category))
+    );
+    return [
+      { id: "all", label: "All" },
+      ...unique.map((cat) => ({ id: cat, label: cat })),
+    ];
+  }, [projectImages]);
 
   const filteredImages =
-    selectedCategory === "all" ? projectImages : projectImages.filter((img) => img.category === selectedCategory)
+    selectedCategory === "all"
+      ? projectImages
+      : projectImages.filter((img) => img.category === selectedCategory);
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % filteredImages.length)
-  }
+    setCurrentImageIndex((prev) => (prev + 1) % filteredImages.length);
+  };
 
   const previousImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + filteredImages.length) % filteredImages.length)
-  }
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + filteredImages.length) % filteredImages.length
+    );
+  };
+
+  // Reset index when category changes or project changes
+  const handleCategoryChange = (catId: string) => {
+    setSelectedCategory(catId);
+    setCurrentImageIndex(0);
+  };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md md:max-w-lg">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">CGPA Calculator App</DialogTitle>
+          <DialogTitle className="text-2xl font-bold">
+            {project.title}
+          </DialogTitle>
+          <p className="text-sm text-muted-foreground">{project.description}</p>
           <div className="flex gap-2 overflow-x-auto py-2 px-1 -mx-1">
             {categories.map((category) => (
               <button
                 key={category.id}
-                onClick={() => {
-                  setSelectedCategory(category.id)
-                  setCurrentImageIndex(0)
-                }}
+                onClick={() => handleCategoryChange(category.id)}
                 className={`px-3 py-1 rounded-full text-sm whitespace-nowrap transition-colors ${
-                  selectedCategory === category.id ? "bg-primary text-primary-foreground" : "bg-muted hover:bg-muted/80"
+                  selectedCategory === category.id
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted hover:bg-muted/80"
                 }`}
               >
                 {category.label}
@@ -120,8 +134,12 @@ export default function CGPAModal({ open, onOpenChange }: CGPAModalProps) {
               {/* Screen */}
               <div className="relative overflow-hidden rounded-[28px] bg-white aspect-[9/19]">
                 <Image
-                  src={filteredImages[currentImageIndex].url || "/placeholder.svg"}
-                  alt={filteredImages[currentImageIndex].title}
+                  src={
+                    filteredImages[currentImageIndex]?.url || "/placeholder.svg"
+                  }
+                  alt={
+                    filteredImages[currentImageIndex]?.title || "Project Image"
+                  }
                   fill
                   className="object-cover"
                   priority
@@ -155,8 +173,12 @@ export default function CGPAModal({ open, onOpenChange }: CGPAModalProps) {
 
           {/* Image info and pagination */}
           <div className="text-center mt-6">
-            <h3 className="font-semibold text-lg">{filteredImages[currentImageIndex].title}</h3>
-            <p className="text-sm text-muted-foreground mt-1">{filteredImages[currentImageIndex].description}</p>
+            <h3 className="font-semibold text-lg">
+              {filteredImages[currentImageIndex]?.title}
+            </h3>
+            <p className="text-sm text-muted-foreground mt-1">
+              {filteredImages[currentImageIndex]?.description}
+            </p>
             <div className="flex justify-center gap-1.5 mt-4">
               {filteredImages.map((_, index) => (
                 <button
@@ -173,6 +195,5 @@ export default function CGPAModal({ open, onOpenChange }: CGPAModalProps) {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
-

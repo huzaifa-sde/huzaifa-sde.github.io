@@ -14,6 +14,7 @@ import WhatsAppModal from "./components/whatsapp-modal";
 import { useState } from "react";
 import CertificationSection from "./components/certification-section";
 import WebModal from "./components/web-modal";
+import MobileModal from "./components/mobile-modal";
 import {
   educationItems,
   experienceItems,
@@ -25,12 +26,14 @@ import {
 type Project = {
   title: string;
   description: string;
-  images: string[] | Array<{
-    url: string;
-    title: string;
-    description: string;
-    category: string;
-  }>;
+  images:
+    | string[]
+    | Array<{
+        url: string;
+        title: string;
+        description: string;
+        category: string;
+      }>;
   link: string;
   tags: string[];
   showModal?: boolean;
@@ -40,7 +43,7 @@ export default function Page() {
   const [whatsappModalOpen, setWhatsappModalOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-console.log("Selected Project:", selectedProject);
+  console.log("Selected Project:", selectedProject);
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -48,8 +51,10 @@ console.log("Selected Project:", selectedProject);
     }
   };
   const openModal = (project: Project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
+    if (project.showModal) {
+      setSelectedProject(project);
+      setIsModalOpen(true);
+    }
   };
   return (
     <div className="min-h-screen bg-background">
@@ -307,17 +312,42 @@ console.log("Selected Project:", selectedProject);
             </div>
           </div>
         </section>
-        {selectedProject && (
-          <WebModal
-            open={isModalOpen}
-            onOpenChange={setIsModalOpen}
-            projectTitle={selectedProject.title}
-            images={Array.isArray(selectedProject.images) && selectedProject.images.length > 0 && typeof selectedProject.images[0] === 'object' 
-              ? selectedProject.images as Array<{url: string; title: string; description: string; category: string}>
-              : []
-            }
-          />
-        )}
+        {selectedProject &&
+          selectedProject.showModal &&
+          !selectedProject.isMobileApp && (
+            <WebModal
+              open={isModalOpen}
+              onOpenChange={setIsModalOpen}
+              projectTitle={selectedProject.title}
+              images={
+                Array.isArray(selectedProject.images) && selectedProject.images.length > 0
+                  ? typeof selectedProject.images[0] === 'string'
+                    ? (selectedProject.images as string[]).map((url, index) => ({
+                        url,
+                        title: `Image ${index + 1}`,
+                        description: `${selectedProject.title} screenshot`,
+                        category: 'general'
+                      }))
+                    : selectedProject.images as Array<{
+                        url: string;
+                        title: string;
+                        description: string;
+                        category: string;
+                      }>
+                  : []
+              }
+            />
+          )}
+
+        {selectedProject &&
+          selectedProject.showModal &&
+          selectedProject.isMobileApp && (
+            <MobileModal
+              open={isModalOpen}
+              onOpenChange={setIsModalOpen}
+              project={selectedProject}
+            />
+          )}
 
         <section id="tech" className="py-20 md:py-32 bg-muted/50">
           <div className="container px-4 md:px-6">
