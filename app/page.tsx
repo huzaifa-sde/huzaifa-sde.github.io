@@ -40,7 +40,7 @@ export default function Page() {
   const [whatsappModalOpen, setWhatsappModalOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
+console.log("Selected Project:", selectedProject);
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {

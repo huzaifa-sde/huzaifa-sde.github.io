@@ -111,7 +111,7 @@ export const projects = [
       description:
         "Deployment diagram illustrating the AWS services used in the architecture.",
       category: "architecture",
-    }
+    },
   ],
     link: "https://github.com/huzaifalidev",
     tags: [
@@ -123,15 +123,35 @@ export const projects = [
       "Auto Scaling",
       "High Availability",
     ],
+    showModal: true,
+    isMobileApp: false,
   },
   {
     title: "Decentralized NFT Auction",
     description:
       "A decentralized auction platform for NFTs, allowing users to create, bid, and manage NFT auctions securely on the blockchain.",
     images: [
-      "/assets/decentralized-auction/1.png",
-      "/assets/decentralized-auction/2.png",
-      "/assets/decentralized-auction/3.png",
+      {
+        url: "assets/projects/decentralized-auction/1.png",
+        title: "NFT Auction Interface",
+        description:
+          "User interface for creating and managing NFT auctions on the blockchain.",
+        category: "interface",
+      },
+      {
+        url: "assets/projects/decentralized-auction/2.png",
+        title: "NFT Auction Dashboard",
+        description:
+          "Dashboard for monitoring and managing NFT auctions on the blockchain.",
+        category: "interface",
+      },
+      {
+        url: "assets/projects/decentralized-auction/3.png",
+        title: "NFT Auction Bidding",
+        description:
+          "Interface for placing bids on NFT auctions securely.",
+        category: "interface",
+      }
     ],
     link: "https://github.com/huzaifalidev",
     tags: [
@@ -144,6 +164,8 @@ export const projects = [
       "MongoDB",
       "Shadcn UI",
     ],
+    showModal: true,
+    isMobileApp: false,
   },
 ];
 
