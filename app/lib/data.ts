@@ -82,14 +82,14 @@ export const projects = [
       "QuizMaster is an AI-powered SaaS quiz platform for education, training, and assessments. It lets organizations create, manage, and deliver smart quizzes with AI-generated questions, strict anti-cheating (tab switch detection, proctoring), and detailed performance reports.",
     images: [
       {
-        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-27%20140922-2auuDp2XZk0lYE6b8Zl23TcRqi9H4q.png",
+        url: "assets/projects/quiz-app/1.png",
         title: "Landing Page",
         description:
           "Modern landing page showcasing the platform's main features",
         category: "marketing",
       },
       {
-        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-04-04%20103934-mOZTdhGWQJiLH5oJlPQEQq5qxGSiar.png",
+        url: "assets/projects/quiz-app/2.png",
         title: "Dashboard Overview",
         description:
           "Organization dashboard with key metrics and recent activity",
@@ -189,25 +189,47 @@ export const projects = [
       "A web-based admin portal for managing tasks and projects within the TaskMate application.",
     images: [
       {
-        url: "assets/projects/admin-portal/1.png",
-        title: "Task Management Interface",
-        description:
-          "User interface for creating and managing tasks within the TaskMate application.",
-        category: "interface",
+        url: "assets/projects/admin-portal/3.png",
+        title: "Landing Page",
+        description: "Landing page showcasing the main features of the TaskMate Admin Portal.",
+        category: "landing page",
       },
       {
         url: "assets/projects/admin-portal/signin.png",
-        title: "Task Dashboard",
-        description:
-          "Dashboard for monitoring and managing tasks within the TaskMate application.",
-        category: "interface",
+        title: "Sign In",
+        description: "Secure sign-in interface for administrators to access the portal.",
+        category: "sign in",
       },
       {
         url: "assets/projects/admin-portal/signup.png",
-        title: "Task Analytics",
+        title: "Sign Up Interface",
         description:
           "Interface for visualizing task data and analytics within the TaskMate application.",
-        category: "interface",
+        category: "sign up",
+      },
+      {
+        url: "assets/projects/admin-portal/2.png",
+        title: "Dashboard",
+        description: "Insights and Analytics dashboard for Tasks, Portfolio & Reports management.",
+        category: "dashboard",
+      },
+      {
+        url: "assets/projects/admin-portal/tasks.png",
+        title: "Tasks",
+        description: "Manage tasks, view details, and track progress.",
+        category: "tasks",
+      },
+      {
+        url: "assets/projects/admin-portal/portfolio.png",
+        title: "Portfolios",
+        description: "Manage Service Provider portfolios & view details.",
+        category: "portfolios",
+      },
+      {
+        url: "assets/projects/admin-portal/reports.png",
+        title: "Reports",
+        description: "Manage reports, view details, and track progress.",
+        category: "reports",
       },
     ],
     link: "https://github.com/huzaifalidev",
