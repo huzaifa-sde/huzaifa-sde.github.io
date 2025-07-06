@@ -131,12 +131,6 @@ export const projects = [
         category: "sp-notifications",
       },
       {
-        url: "assets/projects/taskmate/sp-notifications.png",
-        title: "Service Provider Notifications",
-        description: "View notifications related to your tasks",
-        category: "sp-notifications",
-      },
-      {
         url: "assets/projects/taskmate/task-update.png",
         title: "Task Update",
         description: "View notifications related to your tasks",
