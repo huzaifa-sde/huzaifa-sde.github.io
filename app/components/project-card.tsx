@@ -6,42 +6,50 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import ProjectModal from "./project-modal"
-import CGPAModal from "./cgpa-modal"
-import QuizMasterModal from "./quizmaster-modal"
+import CGPAModal from "./mobile-modal"
+import QuizMasterModal from "./web-modal"
 
-interface ProjectCardProps {
+interface ProjectData {
   title: string
   description: string
-  image: string[]
+  images: string[] | Array<{
+    url: string
+    title: string
+    description: string
+    category: string
+  }>
   link: string
   tags: string[]
   showModal?: boolean
   isMobileApp?: boolean
 }
 
-export default function ProjectCard({
-  title,
-  description,
-  image,
-  link,
-  tags,
-  showModal,
-  isMobileApp,
-}: ProjectCardProps) {
+interface ProjectCardProps {
+  project: ProjectData
+  onOpenModal?: () => void
+}
+
+export default function ProjectCard({ project, onOpenModal }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
-  const [modalOpen, setModalOpen] = useState(false)
+
+  const { title, description, images, link, tags, showModal, isMobileApp } = project
+
+  // Get the main image (first image or URL from complex image object)
+  const mainImage = Array.isArray(images) && images.length > 0 
+    ? (typeof images[0] === 'string' ? images[0] : images[0].url)
+    : "/placeholder.svg"
 
   return (
-    <>
+  <>
       <Card
         className="overflow-hidden group transition-all duration-300 hover:shadow-lg border-muted hover:border-primary/20 cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={() => showModal && setModalOpen(true)}
+        onClick={() => showModal && onOpenModal && onOpenModal()}
       >
         <div className="relative aspect-video overflow-hidden">
           <Image
-            src={image || "/placeholder.svg"}
+            src={mainImage}
             alt={title}
             fill
             className={`object-cover transition-transform duration-500 ${isHovered ? "scale-110" : "scale-100"}`}
@@ -87,15 +95,14 @@ export default function ProjectCard({
           </Link>
         </CardFooter>
       </Card>
-      {showModal &&
+      {/* {showModal &&
         (title === "CGPA Calculator" ? (
           <CGPAModal open={modalOpen} onOpenChange={setModalOpen} />
         ) : title.includes("QuizMaster") ? (
           <QuizMasterModal open={modalOpen} onOpenChange={setModalOpen} />
         ) : (
           <ProjectModal open={modalOpen} onOpenChange={setModalOpen} />
-        ))}
+        ))} */}
     </>
   )
 }
-

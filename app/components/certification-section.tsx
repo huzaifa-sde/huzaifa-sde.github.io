@@ -38,10 +38,10 @@ export default function CertificationSection({ items }: CertificationSectionProp
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {items.map((cert, index) => (
-            <Card key={index} className="p-2 flex flex-col items-center justify-center">
+            <Card key={index} className="p-2 flex flex-col items-center justify-center overflow-hidden rounded-lg">
               <Link href={cert.link} target="_blank">
                 <div
-                  className="relative mt-2 mb-2 block cursor-pointer transition-transform hover:scale-105"
+                  className="relative overflow-hidden mt-2 mb-2 block cursor-pointer transition-transform hover:scale-105"
                   style={{ width: cert.imageSize.width, height: cert.imageSize.height }}
                 >
                   <Image

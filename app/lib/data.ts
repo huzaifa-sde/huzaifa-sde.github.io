@@ -1,4 +1,3 @@
-import { Certificate } from "crypto";
 
 export const projects = [
   {
@@ -10,8 +9,6 @@ export const projects = [
     ],
     link: "https://github.com/huzaifalidev",
     tags: ["React Native", "Node.js", "MongoDB", "Figma", "SRS"],
-    showModal: true,
-    isMobileApp: true,
   },
   {
     title: "CGPA Calculator",
@@ -22,15 +19,66 @@ export const projects = [
     ],
     link: "https://github.com/huzaifalidev",
     tags: ["React Native", "JavaScript", "Mobile UI/UX"],
-    showModal: true,
-    isMobileApp: true,
   },
   {
     title: "QuizMaster : SaaS-Based Quiz Platform",
     description:
       "QuizMaster is an AI-powered SaaS quiz platform for education, training, and assessments. It lets organizations create, manage, and deliver smart quizzes with AI-generated questions, strict anti-cheating (tab switch detection, proctoring), and detailed performance reports.",
     images: [
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-27%20140922-2auuDp2XZk0lYE6b8Zl23TcRqi9H4q.png",
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-27%20140922-2auuDp2XZk0lYE6b8Zl23TcRqi9H4q.png",
+        title: "Landing Page",
+        description:
+          "Modern landing page showcasing the platform's main features",
+        category: "marketing",
+      },
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-04-04%20103934-mOZTdhGWQJiLH5oJlPQEQq5qxGSiar.png",
+        title: "Dashboard Overview",
+        description:
+          "Organization dashboard with key metrics and recent activity",
+        category: "dashboard",
+      },
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-04-04%20104011-07SRo9pzyvbBba8kWzkGq2CP7Ozwk0.png",
+        title: "Teacher Management",
+        description:
+          "Interface for adding and managing teachers in the organization",
+        category: "management",
+      },
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-04-04%20105810-WiyFhteSHmNdm0nfjkIKlpuowZsg30.png",
+        title: "Quiz Interface",
+        description:
+          "Interactive quiz with multiple choice questions and timer",
+        category: "quiz",
+      },
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-04-04%20105837-UalK5aYzea1Ho8VsZo6NNOZx7X8ptd.png",
+        title: "Quiz Results",
+        description:
+          "Detailed results page showing performance and anti-cheating measures",
+        category: "quiz",
+      },
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-04-04%20113129-8FupcjSdwDso6iyDYs49ET4eBDShbb.png",
+        title: "Organization Signup",
+        description:
+          "Registration form for new organizations to join the platform",
+        category: "auth",
+      },
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-04-04%20104502-cr5FVLH4ssRppunnR5h4sDAEAgBJxS.png",
+        title: "Quiz Management",
+        description: "Interface for creating and managing quizzes and courses",
+        category: "management",
+      },
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-04-04%20105142-lZbScgqK3KT97BwjIbBKliO3KbIE1c.png",
+        title: "Academic Performance",
+        description: "Student performance tracking with grade distribution",
+        category: "analytics",
+      },
     ],
     link: "https://github.com/huzaifalidev",
     tags: [
@@ -51,12 +99,30 @@ export const projects = [
     description:
       "Deployed a highly available and scalable web application on AWS EC2 instances with Elastic Load Balancer, utilizing multiple availability zones for high reliability and fault tolerance.",
     images: [
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AWS%203in1%20Final%20project%20%28V1.0%29_page-0001.jpg-l7NdZtjVJBbe9zVHaBzVLd5Zl8x8R5.jpeg",
-    ],
+      {
+      url:"assets/projects/aws/2.jpg",
+      title: "AWS Infrastructure Diagram",
+      description:
+        "Architecture diagram showing the multi-tier setup with EC2, RDS, VPC, and Load Balancer.",
+      category: "architecture",
+    },{
+      url:"assets/projects/aws/1.png",
+      title: "AWS Deployment Diagram",
+      description:
+        "Deployment diagram illustrating the AWS services used in the architecture.",
+      category: "architecture",
+    }
+  ],
     link: "https://github.com/huzaifalidev",
-    tags: ["AWS", "EC2", "RDS", "VPC", "Load Balancer", "Auto Scaling", "High Availability"],
-    showModal: true,
-    isMobileApp: false,
+    tags: [
+      "AWS",
+      "EC2",
+      "RDS",
+      "VPC",
+      "Load Balancer",
+      "Auto Scaling",
+      "High Availability",
+    ],
   },
   {
     title: "Decentralized NFT Auction",
@@ -68,12 +134,18 @@ export const projects = [
       "/assets/decentralized-auction/3.png",
     ],
     link: "https://github.com/huzaifalidev",
-    tags: ["Solidity", "Meta Mask", "Hardhat", "IPFS", "React Js", "Nest Js", "MongoDB", "Shadcn UI"],
-    showModal: true,
-    isMobileApp: false,
+    tags: [
+      "Solidity",
+      "Meta Mask",
+      "Hardhat",
+      "IPFS",
+      "React Js",
+      "Nest Js",
+      "MongoDB",
+      "Shadcn UI",
+    ],
   },
-]
-
+];
 
 export const educationItems = [
   {
@@ -157,6 +229,5 @@ export const certifications = [
     link: "assets/certifications/saylani_bootcamp_certificate.pdf",
     alt: "Saylani Bootcamp Certificate",
     imageSize: { width: 350, height: 350 },
-  }
-
+  },
 ];

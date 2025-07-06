@@ -13,10 +13,33 @@ import ExperienceTimeline from "./components/experience-timeline";
 import WhatsAppModal from "./components/whatsapp-modal";
 import { useState } from "react";
 import CertificationSection from "./components/certification-section";
-import AWSProjectCard from "./components/aws-project-card";
-import { educationItems, experienceItems, projects,certifications } from "./lib/data";
+import WebModal from "./components/web-modal";
+import {
+  educationItems,
+  experienceItems,
+  projects,
+  certifications,
+} from "./lib/data";
+
+// Define the Project type to match the data structure
+type Project = {
+  title: string;
+  description: string;
+  images: string[] | Array<{
+    url: string;
+    title: string;
+    description: string;
+    category: string;
+  }>;
+  link: string;
+  tags: string[];
+  showModal?: boolean;
+  isMobileApp?: boolean;
+};
 export default function Page() {
   const [whatsappModalOpen, setWhatsappModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
@@ -24,7 +47,10 @@ export default function Page() {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-
+  const openModal = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -260,78 +286,13 @@ export default function Page() {
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <ProjectCard
-                title="TaskMate (FYP)"
-                description="TaskMate is mobile application connects clients with skilled Service Providers like plumbers, electricians, and mechanics."
-                image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SplashScreen-Vj4qGuiVsCohOyhxOKy1nyv8pcfhz8.png"
-                link="https://github.com/huzaifalidev"
-                tags={["React Native", "Node.js", "MongoDB", "Figma", "SRS"]}
-                showModal={true}
-                isMobileApp={true}
-              />
-              <ProjectCard
-                title="CGPA Calculator"
-                description="A mobile app for calculating university CGPA with dynamic course addition, grade selection, and real-time GPA calculation."
-                image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/splash-icon-0rhhsBtGLGVL19umbEg0etFCsIPjZy.png"
-                link="https://github.com/huzaifalidev"
-                tags={["React Native", "JavaScript", "Mobile UI/UX"]}
-                showModal={true}
-                isMobileApp={true}
-              />
-              <ProjectCard
-                title="QuizMaster : SaaS-Based Quiz Platform"
-                description="QuizMaster is an AI-powered SaaS quiz platform for education, training, and assessments. It lets organizations create, manage, and deliver smart quizzes with AI-generated questions, strict anti-cheating (tab switch detection, proctoring), and detailed performance reports."
-                image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-27%20140922-2auuDp2XZk0lYE6b8Zl23TcRqi9H4q.png"
-                link="https://github.com/huzaifalidev"
-                tags={[
-                  "Next.js",
-                  "TailwindCSS",
-                  "Node.js",
-                  "MongoDB",
-                  "Oracle Cloud",
-                  "Nginx",
-                  "Docker",
-                  "CI/CD",
-                ]}
-                showModal={true}
-                isMobileApp={false}
-              />
-              <ProjectCard
-                title="Multi-tier HA & Scalable AWS Infrastructure"
-                description="Deployed a highly available and scalable web application on AWS EC2 instances with Elastic Load Balancer, utilizing multiple availability zones for high reliability and fault tolerance."
-                image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AWS%203in1%20Final%20project%20%28V1.0%29_page-0001.jpg-l7NdZtjVJBbe9zVHaBzVLd5Zl8x8R5.jpeg"
-                link="https://github.com/huzaifalidev"
-                tags={[
-                  "AWS",
-                  "EC2",
-                  "RDS",
-                  "VPC",
-                  "Load Balancer",
-                  "Auto Scaling",
-                  "High Availability",
-                ]}
-                showModal={true}
-                isMobileApp={false}
-              />
-              <ProjectCard
-                title="Decentralized NFT Auction"
-                description="A decentralized auction platform for NFTs, allowing users to create, bid, and manage NFT auctions securely on the blockchain."
-                image="assets/decentralized-auction/1.png"
-                link="https://github.com/huzaifalidev"
-                tags={[
-                  "Solidity",
-                  "Meta Mask",
-                  "Hardhat",
-                  "IPFS",
-                  "React Js",
-                  "Nest Js",
-                  "MongoDB",
-                  "Shadcn UI",
-                ]}
-                showModal={true}
-                isMobileApp={false}
-              />
-              {/* <AWSProjectCard /> */}
+              {projects.map((project, index) => (
+                <ProjectCard
+                  key={index}
+                  project={project}
+                  onOpenModal={() => openModal(project)}
+                />
+              ))}
             </div>
             <div className="mt-12 text-center">
               <Button
@@ -346,6 +307,17 @@ export default function Page() {
             </div>
           </div>
         </section>
+        {selectedProject && (
+          <WebModal
+            open={isModalOpen}
+            onOpenChange={setIsModalOpen}
+            projectTitle={selectedProject.title}
+            images={Array.isArray(selectedProject.images) && selectedProject.images.length > 0 && typeof selectedProject.images[0] === 'object' 
+              ? selectedProject.images as Array<{url: string; title: string; description: string; category: string}>
+              : []
+            }
+          />
+        )}
 
         <section id="tech" className="py-20 md:py-32 bg-muted/50">
           <div className="container px-4 md:px-6">
