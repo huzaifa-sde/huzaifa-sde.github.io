@@ -75,7 +75,7 @@ export default function Page() {
               <Link
                 target="_blank"
                 href="/assets/resume/Huzaifa_Ali_Resume.pdf"
-              // download="Huzaifa_Ali_Resume.pdf"
+                // download="Huzaifa_Ali_Resume.pdf"
               >
                 <svg
                   width="16"
@@ -301,7 +301,15 @@ export default function Page() {
                 description="Deployed a highly available and scalable web application on AWS EC2 instances with Elastic Load Balancer, utilizing multiple availability zones for high reliability and fault tolerance."
                 image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AWS%203in1%20Final%20project%20%28V1.0%29_page-0001.jpg-l7NdZtjVJBbe9zVHaBzVLd5Zl8x8R5.jpeg"
                 link="https://github.com/huzaifalidev"
-                tags={["AWS", "EC2", "RDS", "VPC", "Load Balancer", "Auto Scaling", "High Availability"]}
+                tags={[
+                  "AWS",
+                  "EC2",
+                  "RDS",
+                  "VPC",
+                  "Load Balancer",
+                  "Auto Scaling",
+                  "High Availability",
+                ]}
                 showModal={true}
                 isMobileApp={false}
               />
@@ -310,7 +318,16 @@ export default function Page() {
                 description="A decentralized auction platform for NFTs, allowing users to create, bid, and manage NFT auctions securely on the blockchain."
                 image="assets/decentralized-auction/1.png"
                 link="https://github.com/huzaifalidev"
-                tags={["Solidity", "Meta Mask", "Hardhat", "IPFS", "React Js", "Nest Js", "MongoDB", "Shadcn UI"]}
+                tags={[
+                  "Solidity",
+                  "Meta Mask",
+                  "Hardhat",
+                  "IPFS",
+                  "React Js",
+                  "Nest Js",
+                  "MongoDB",
+                  "Shadcn UI",
+                ]}
                 showModal={true}
                 isMobileApp={false}
               />

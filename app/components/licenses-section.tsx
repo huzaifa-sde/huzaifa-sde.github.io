@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
+
 export default function LicensesSection() {
   useEffect(() => {
     // Load the Credly script dynamically
@@ -37,11 +38,11 @@ export default function LicensesSection() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <Card className="p-6 flex flex-col items-center justify-center">
+          <Card className="p-2 flex flex-col items-center justify-center">
             <Link
               href="https://www.credly.com/badges/db14a578-1497-4b58-9b97-07ac28ef1268"
               target="_blank"
-              className="w-[250px] h-[250px] relative mb-4 block cursor-pointer transition-transform hover:scale-105"
+              className="w-[150px] h-[150px] relative mb-4 block cursor-pointer transition-transform hover:scale-105"
             >
               <Image
                 src="/assets/certifications/javascript-essentials-1.png"
@@ -59,45 +60,49 @@ export default function LicensesSection() {
               fundamentals.
             </p>
           </Card>
-          <Card className="p-6 flex flex-col items-center justify-center">
+          <Card className="p-2 flex flex-col items-center justify-center">
             <Link
               href="https://www.credly.com/badges/4f996bcd-e7b1-404e-adbe-13d2502d21d2"
               target="_blank"
-              className="w-[250px] h-[250px] relative mb-4 block cursor-pointer transition-transform hover:scale-105"
+              
             >
-              <Image
-                src="assets/certifications/javascript-essentials-2.png"
-                alt="Cisco JavaScript Essentials 2 Certification"
-                fill
-                className="object-contain"
-              />
+              <div className="w-[250px] h-[200px] relative mb-4 block cursor-pointer transition-transform hover:scale-105">
+                <Image
+                  src="assets/certifications/javascript-essentials-2.png"
+                  alt="Cisco JavaScript Essentials 2 Certification"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </Link>
             <h3 className="text-xl font-semibold mt-4">
               JavaScript Essentials 2
             </h3>
-            <p className="text-sm text-muted-foreground mt-2">
+            <p className="text-sm text-center text-muted-foreground mt-2">
               Verified JavaScript Essentials 2 certification from Cisco
               Networking Academy, demonstrating proficiency in advanced
               JavaScript concepts.
             </p>
           </Card>
-          <Card className="p-6 flex flex-col items-center justify-center">
+          <Card className="p-2 flex flex-col items-center justify-center">
             <Link
               href="assets/certifications/aws_certificate.pdf"
               target="_blank"
-              className="w-[450px] h-[250px] relative mb-4 block cursor-pointer transition-transform hover:scale-105"
+                className="w-full h-full flex justify-center"
             >
-              <Image
-                src="assets/certifications/aws_certificate.png"
-                alt="AWS Solutions Architect/SysOps Admin/Developer Associate"
-                fill
-                className="object-contain"
-              />
+              <div className="w-[250px] h-[200px] relative mb-4 block cursor-pointer transition-transform hover:scale-105">
+                <Image
+                  src="assets/certifications/aws_certificate.png"
+                  alt="Cisco JavaScript Essentials 2 Certification"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </Link>
             <h3 className="text-xl text-center font-semibold mt-4">
               AWS Solutions Architect/SysOps Admin/Developer Associate
             </h3>
-            <p className="text-sm text-muted-foreground mt-2">
+            <p className="text-sm text-center text-muted-foreground mt-2">
               Certified AWS Solutions Architect, SysOps Administrator, and
               Developer Associate, experienced in building secure, scalable, and
               efficient cloud solutions on AWS.
