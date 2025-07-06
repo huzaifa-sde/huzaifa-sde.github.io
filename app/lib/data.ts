@@ -113,7 +113,7 @@ export const projects = [
         category: "update-password",
       },
       {
-        url: "assets/projects/taskmate/home-screen.png",
+        url: "assets/projects/taskmate/home-sp.png",
         title: "Home Screen",
         description: "Service Providers can explore available tasks",
         category: "home-screen",

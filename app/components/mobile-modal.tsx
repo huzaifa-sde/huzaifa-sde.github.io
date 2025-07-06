@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useMemo, useState } from "react";
-
+import { useTheme } from "next-themes"
 interface ProjectImage {
   url: string;
   title: string;
@@ -22,13 +22,13 @@ interface ProjectData {
   title: string;
   description: string;
   images:
-    | string[]
-    | Array<{
-        url: string;
-        title: string;
-        description: string;
-        category: string;
-      }>;
+  | string[]
+  | Array<{
+    url: string;
+    title: string;
+    description: string;
+    category: string;
+  }>;
   link?: string;
   tags?: string[];
   showModal?: boolean;
@@ -48,8 +48,8 @@ export default function MobileModal({
 }: MobileModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-
-  // Convert images to ProjectImage[] format
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark" ? true : false;
   const projectImages: ProjectImage[] = useMemo(() => {
     if (!project.images || project.images.length === 0) return [];
 
@@ -100,13 +100,13 @@ export default function MobileModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md md:max-w-lg">
+      <DialogContent className="w-[600px] h-[800px] dark:bg-slate-700">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">
             {project.title}
           </DialogTitle>
           <p className="text-sm text-muted-foreground">{project.description}</p>
-          <div className="flex flex-wrap gap-2 overflow-x-auto py-2 px-1 -mx-1">
+          {/* <div className="flex flex-wrap gap-2 overflow-x-auto py-2 px-1 -mx-1">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -120,15 +120,15 @@ export default function MobileModal({
                 {category.label}
               </button>
             ))}
-          </div>
+          </div> */}
         </DialogHeader>
-        <div className="flex flex-col items-center justify-center mt-4">
+        <div className="flex flex-col items-center justify-center">
           {/* Phone frame */}
-          <div className="relative mx-auto">
-            <div className="relative w-[280px] md:w-[320px] rounded-[36px] bg-gray-800 p-2 shadow-xl">
+          <div className="relative">
+            <div className={`relative w-[180px] md:w-[250px] rounded-[36px] bg-gray-800 p-2 shadow-2xl`}>
               {/* Phone notch */}
               <div className="absolute top-0 inset-x-0 h-6 flex justify-center">
-                <div className="w-40 h-6 bg-gray-800 rounded-b-xl"></div>
+                {/* <div className="w-40 h-6 bg-gray-800 rounded-b-xl"></div> */}
               </div>
 
               {/* Screen */}
@@ -183,9 +183,8 @@ export default function MobileModal({
               {filteredImages.map((_, index) => (
                 <button
                   key={index}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentImageIndex ? "bg-primary" : "bg-muted"
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-colors ${index === currentImageIndex ? "bg-primary" : "bg-muted"
+                    }`}
                   onClick={() => setCurrentImageIndex(index)}
                   aria-label={`View ${filteredImages[index].title}`}
                 />
