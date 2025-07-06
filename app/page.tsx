@@ -12,9 +12,9 @@ import EducationTree from "./components/education-tree";
 import ExperienceTimeline from "./components/experience-timeline";
 import WhatsAppModal from "./components/whatsapp-modal";
 import { useState } from "react";
-import LicensesSection from "./components/licenses-section";
+import CertificationSection from "./components/certification-section";
 import AWSProjectCard from "./components/aws-project-card";
-import { educationItems, experienceItems, projects } from "./lib/data";
+import { educationItems, experienceItems, projects,certifications } from "./lib/data";
 export default function Page() {
   const [whatsappModalOpen, setWhatsappModalOpen] = useState(false);
 
@@ -243,7 +243,7 @@ export default function Page() {
           </div>
         </section>
 
-        <LicensesSection />
+        <CertificationSection items={certifications} />
 
         <section id="projects" className="py-20 md:py-32">
           <div className="container px-4 md:px-6">

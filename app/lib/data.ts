@@ -1,3 +1,5 @@
+import { Certificate } from "crypto";
+
 export const projects = [
   {
     title: "TaskMate (FYP)",
@@ -118,4 +120,43 @@ export const experienceItems = [
       "Gained hands-on experience in managing physical servers, networks, and systems.",
     ],
   },
+];
+export const certifications = [
+  {
+    title: "JavaScript Essentials 1",
+    description:
+      "Verified JavaScript Essentials 1 certification from Cisco Networking Academy, demonstrating proficiency in JavaScript fundamentals.",
+    image: "assets/certifications/javascript-essentials-1.png",
+    link: "https://www.credly.com/badges/db14a578-1497-4b58-9b97-07ac28ef1268",
+    alt: "Cisco JavaScript Essentials 1 Certification",
+    imageSize: { width: 250, height: 250 },
+  },
+  {
+    title: "JavaScript Essentials 2",
+    description:
+      "Verified JavaScript Essentials 2 certification from Cisco Networking Academy, demonstrating proficiency in advanced JavaScript concepts.",
+    image: "assets/certifications/javascript-essentials-2.png",
+    link: "https://www.credly.com/badges/4f996bcd-e7b1-404e-adbe-13d2502d21d2",
+    alt: "Cisco JavaScript Essentials 2 Certification",
+    imageSize: { width: 250, height: 250 },
+  },
+  {
+    title: "AWS Solutions Architect/SysOps Admin/Developer Associate",
+    description:
+      "Certified AWS Solutions Architect, SysOps Administrator, and Developer Associate, experienced in building secure, scalable, and efficient cloud solutions on AWS.",
+    image: "assets/certifications/aws_certificate.png",
+    link: "assets/certifications/aws_certificate.pdf",
+    alt: "AWS Solutions Architect/SysOps Admin/Developer Associate Certification",
+    imageSize: { width: 350, height: 350 },
+  },
+  {
+    title: "Saylani Bootcamp",
+    description:
+      "Successfully completed the Saylani Bootcamp, gaining hands-on experience in Web & App development.",
+    image: "assets/certifications/saylani_bootcamp_certificate.png",
+    link: "assets/certifications/saylani_bootcamp_certificate.pdf",
+    alt: "Saylani Bootcamp Certificate",
+    imageSize: { width: 350, height: 350 },
+  }
+
 ];
