@@ -11,7 +11,7 @@ export const projects = [
         category: "onboarding",
       },
       {
-        url:"assets/projects/taskmate/signin.png",
+        url: "assets/projects/taskmate/signin.png",
         title: "Sign In",
         description: "Sign in to your account",
         category: "sign in",
@@ -35,7 +35,7 @@ export const projects = [
         category: "forget-password",
       },
       {
-        url: "assets/projects/taskmate/forget-password.png",
+        url: "assets/projects/taskmate/otp.png",
         title: "OTP",
         description: "Verify your identity with a one-time password",
         category: "otp",
@@ -65,10 +65,16 @@ export const projects = [
         category: "messaging",
       },
       {
-        url: "assets/projects/taskmate/chat.png",
+        url: "assets/projects/taskmate/chat.jpg",
         title: "Chat",
         description: "Manage real-time chat with service providers",
         category: "chat",
+      },
+      {
+        url: "assets/projects/taskmate/location.jpg",
+        title: "Location",
+        description: "Share your location with service providers inside chat",
+        category: "location",
       },
       {
         url: "assets/projects/taskmate/client-notifications.png",
@@ -83,7 +89,7 @@ export const projects = [
         category: "task-progress",
       },
       {
-        url: "assets/projects/taskmate/rating-review.png",
+        url: "assets/projects/taskmate/rating-review.jpg",
         title: "Rating & Review",
         description: "Provide feedback on your experience with service providers",
         category: "rating-review",
@@ -95,10 +101,10 @@ export const projects = [
         category: "create-report",
       },
       {
-        url: "assets/projects/taskmate/rating-review.png",
-        title: "Rating & Review",
-        description: "Provide feedback on your experience with service providers",
-        category: "rating-review",
+        url: "assets/projects/taskmate/profile.jpg",
+        title: "Profile",
+        description: "View and edit your profile information",
+        category: "profile",
       },
       {
         url: "assets/projects/taskmate/terms-conditions.png",
@@ -137,7 +143,7 @@ export const projects = [
         category: "task-update",
       },
     ],
-    link: "https://github.com/huzaifalidev",
+    link: "https://quiz.afaq.dev/",
     tags: ["React Native", "Node.js", "MongoDB", "Figma", "SRS"],
     showModal: true,
     isMobileApp: true,
@@ -250,7 +256,7 @@ export const projects = [
         category: "analytics",
       },
     ],
-    link: "https://github.com/huzaifalidev",
+    link: "https://quiz.afaq.dev/", 
     tags: [
       "Next.js",
       "TailwindCSS",

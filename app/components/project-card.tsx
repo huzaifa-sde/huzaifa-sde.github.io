@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Github, Monitor, Smartphone } from "lucide-react";
+import { Github, Monitor, Server, Smartphone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -111,8 +111,8 @@ export default function ProjectCard({
             className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
             onClick={(e) => e.stopPropagation()}
           >
-            <Github className="h-4 w-4" />
-            View on GitHub
+            <Server className="h-4 w-4" />
+            Live Demo
           </Link>
         </CardFooter>
       </Card>
