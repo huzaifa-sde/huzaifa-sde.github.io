@@ -392,7 +392,7 @@ export const projects = [
         category: "interface",
       },
     ],
-    link: "https://github.com/huzaifalidev",
+    link: "http://nft-auction.surge.sh/",
     tags: [
       "Solidity",
       "Meta Mask",
