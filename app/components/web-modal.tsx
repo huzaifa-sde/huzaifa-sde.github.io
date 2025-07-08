@@ -44,7 +44,7 @@ export default function WebModal({ open, onOpenChange, projectTitle, images }: P
       <DialogContent className="sm:max-w-3xl md:max-w-4xl">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">{projectTitle}</DialogTitle>
-          <div className="flex gap-2 overflow-x-auto py-2 px-1 -mx-1">
+          {/* <div className="flex gap-2 overflow-x-auto py-2 px-1 -mx-1">
             {allCategories.map((category) => (
               <button
                 key={category.id}
@@ -59,7 +59,7 @@ export default function WebModal({ open, onOpenChange, projectTitle, images }: P
                 {category.label}
               </button>
             ))}
-          </div>
+          </div> */}
         </DialogHeader>
         <div className="flex flex-col items-center justify-center mt-4">
           <div className="relative mx-auto w-full">
