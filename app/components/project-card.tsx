@@ -104,17 +104,31 @@ export default function ProjectCard({
             ))}
           </div>
         </CardContent>
-        <CardFooter className="p-6 pt-0">
-          <Link
-            href={link}
-            target="_blank"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Server className="h-4 w-4" />
-            Live Demo
-          </Link>
-        </CardFooter>
+        {!isMobileApp ? (
+          <CardFooter className="p-6 pt-0">
+            <Link
+              href={link}
+              target="_blank"
+              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Server className="h-4 w-4" />
+              Live Demo
+            </Link>
+          </CardFooter>
+        ) : (
+          <CardFooter className="p-6 pt-0">
+            <Link
+              href={link}
+              target="_blank"
+              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Github className="h-4 w-4" />
+              Repository
+            </Link>
+          </CardFooter>
+        )}
       </Card>
       {/* {showModal &&
         (title === "CGPA Calculator" ? (

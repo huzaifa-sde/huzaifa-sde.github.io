@@ -1,12 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Twitter, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter, Phone, Check, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import ContactForm from "./components/contact-form";
 import ProjectCard from "./components/project-card";
 import TechStack from "./components/tech-stack";
-import { ThemeToggle } from "@/components/theme-toggle";
 import ProfileImage from "./components/profile-image";
 import EducationTree from "./components/education-tree";
 import ExperienceTimeline from "./components/experience-timeline";
@@ -15,6 +14,7 @@ import { useState } from "react";
 import CertificationSection from "./components/certification-section";
 import WebModal from "./components/web-modal";
 import MobileModal from "./components/mobile-modal";
+import {Navbar} from "./components/navbar";
 import {
   educationItems,
   experienceItems,
@@ -22,7 +22,6 @@ import {
   certifications,
 } from "./lib/data";
 
-// Define the Project type to match the data structure
 type Project = {
   title: string;
   description: string;
@@ -57,86 +56,7 @@ export default function Page() {
   };
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-6">
-            <Link className="flex items-center space-x-2" href="/">
-              <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
-                H
-              </div>
-              <span className="hidden font-bold sm:inline-block">
-                Huzaifa Ali
-              </span>
-            </Link>
-            <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-              <Link
-                href="#about"
-                className="transition-colors hover:text-primary"
-              >
-                About
-              </Link>
-              <Link
-                href="#projects"
-                className="transition-colors hover:text-primary"
-              >
-                Projects
-              </Link>
-              <Link
-                href="#tech"
-                className="transition-colors hover:text-primary"
-              >
-                Tech Stack
-              </Link>
-              <Link
-                href="#contact"
-                className="transition-colors hover:text-primary"
-              >
-                Contact
-              </Link>
-            </nav>
-          </div>
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-            <Button
-              variant="outline"
-              className="hidden sm:flex gap-2 items-center"
-              asChild
-            >
-              <Link
-                target="_blank"
-                href="/assets/resume/Huzaifa_Ali_Resume.pdf"
-                // download="Huzaifa_Ali_Resume.pdf"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mr-1"
-                >
-                  <path
-                    d="M13 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9l-6-6z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M13 3v6h6M9 13h6M9 17h6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Resume
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </header>
-
+      <Navbar />
       <main>
         <section id="about" className="relative py-20 md:py-32 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-background z-0"></div>
@@ -145,6 +65,7 @@ export default function Page() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-12">
               <div className="space-y-6 max-w-2xl">
                 <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
+                 <CheckCircle className="inline-block h-5 w-5 mr-2 text-green-500" />
                   Available for freelance work
                 </div>
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl/none">
@@ -319,20 +240,23 @@ export default function Page() {
               onOpenChange={setIsModalOpen}
               projectTitle={selectedProject.title}
               images={
-                Array.isArray(selectedProject.images) && selectedProject.images.length > 0
-                  ? typeof selectedProject.images[0] === 'string'
-                    ? (selectedProject.images as string[]).map((url, index) => ({
-                        url,
-                        title: `Image ${index + 1}`,
-                        description: `${selectedProject.title} screenshot`,
-                        category: 'general'
-                      }))
-                    : selectedProject.images as Array<{
+                Array.isArray(selectedProject.images) &&
+                selectedProject.images.length > 0
+                  ? typeof selectedProject.images[0] === "string"
+                    ? (selectedProject.images as string[]).map(
+                        (url, index) => ({
+                          url,
+                          title: `Image ${index + 1}`,
+                          description: `${selectedProject.title} screenshot`,
+                          category: "general",
+                        })
+                      )
+                    : (selectedProject.images as Array<{
                         url: string;
                         title: string;
                         description: string;
                         category: string;
-                      }>
+                      }>)
                   : []
               }
             />

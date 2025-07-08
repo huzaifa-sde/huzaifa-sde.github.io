@@ -392,7 +392,7 @@ export const projects = [
         category: "interface",
       },
     ],
-    link: "http://nft.huzaifali.tech",
+    link: "http://nft-auction.huzaifali.tech",
     tags: [
       "Solidity",
       "Meta Mask",
@@ -492,3 +492,25 @@ export const certifications = [
     imageSize: { width: 350, height: 350 },
   },
 ];
+export const technologies = [
+  {
+    category: "Frontend",
+    icon: "🎨",
+    skills: ["React","React Native", "Next.js", "TypeScript", "TailwindCSS", "Redux", "Shadcn UI", "Ant Design", "Bootstrap"],
+  },
+  {
+    category: "Backend",
+    icon: "⚙️",
+    skills: ["Node.js", "Nest Js", "Express", "Python", "PostgreSQL", "MongoDB"],
+  },
+  {
+    category: "DevOps",
+    icon: "🚀",
+    skills: ["Docker", "AWS", "CI/CD", "Git", "Linux", "Nginx","Terraform","Kubernetes","Ansible","Jenkins","Azure","GitHub Actions"],
+  },
+  {
+    category: "Tools",
+    icon: "🛠️",
+    skills: ["VS Code", "Postman", "Figma", "Jest", "GitHub", "Vercel"],
+  },
+]

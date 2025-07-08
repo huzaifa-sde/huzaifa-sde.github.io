@@ -1,27 +1,6 @@
 import { Card } from "@/components/ui/card"
 
-const technologies = [
-  {
-    category: "Frontend",
-    icon: "🎨",
-    skills: ["React", "Next.js", "TypeScript", "TailwindCSS", "Redux", "GraphQL"],
-  },
-  {
-    category: "Backend",
-    icon: "⚙️",
-    skills: ["Node.js", "Express", "Python", "Django", "PostgreSQL", "MongoDB"],
-  },
-  {
-    category: "DevOps",
-    icon: "🚀",
-    skills: ["Docker", "AWS", "CI/CD", "Git", "Linux", "Nginx"],
-  },
-  {
-    category: "Tools",
-    icon: "🛠️",
-    skills: ["VS Code", "Postman", "Figma", "Jest", "GitHub", "Vercel"],
-  },
-]
+import {technologies} from "../lib/data"
 
 export default function TechStack() {
   return (

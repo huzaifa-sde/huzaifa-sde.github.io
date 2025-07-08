@@ -10,7 +10,11 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Huzaifa Ali Khan  - Software Engineer",
   description: "Full stack developer portfolio showcasing projects and skills",
-    generator: 'v0.dev'
+    generator: '',
+    icons:{
+      icon: "/favicon.png"
+    }
+    
 }
 
 export default function RootLayout({
