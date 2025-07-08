@@ -91,7 +91,8 @@ export const projects = [
       {
         url: "assets/projects/taskmate/rating-review.jpg",
         title: "Rating & Review",
-        description: "Provide feedback on your experience with service providers",
+        description:
+          "Provide feedback on your experience with service providers",
         category: "rating-review",
       },
       {
@@ -143,7 +144,7 @@ export const projects = [
         category: "task-update",
       },
     ],
-    link: "https://quiz.afaq.dev/",
+    link: "https://github.com/huzaifalidev",
     tags: ["React Native", "Node.js", "MongoDB", "Figma", "SRS"],
     showModal: true,
     isMobileApp: true,
@@ -256,7 +257,7 @@ export const projects = [
         category: "analytics",
       },
     ],
-    link: "https://quiz.afaq.dev/", 
+    link: "https://quiz.afaq.dev/",
     tags: [
       "Next.js",
       "TailwindCSS",
@@ -311,13 +312,15 @@ export const projects = [
       {
         url: "assets/projects/admin-portal/3.png",
         title: "Landing Page",
-        description: "Landing page showcasing the main features of the TaskMate Admin Portal.",
+        description:
+          "Landing page showcasing the main features of the TaskMate Admin Portal.",
         category: "landing page",
       },
       {
         url: "assets/projects/admin-portal/signin.png",
         title: "Sign In",
-        description: "Secure sign-in interface for administrators to access the portal.",
+        description:
+          "Secure sign-in interface for administrators to access the portal.",
         category: "sign in",
       },
       {
@@ -330,7 +333,8 @@ export const projects = [
       {
         url: "assets/projects/admin-portal/2.png",
         title: "Dashboard",
-        description: "Insights and Analytics dashboard for Tasks, Portfolio & Reports management.",
+        description:
+          "Insights and Analytics dashboard for Tasks, Portfolio & Reports management.",
         category: "dashboard",
       },
       {
@@ -496,21 +500,51 @@ export const technologies = [
   {
     category: "Frontend",
     icon: "🎨",
-    skills: ["React","React Native", "Next.js", "TypeScript", "TailwindCSS", "Redux", "Shadcn UI", "Ant Design", "Bootstrap"],
+    skills: [
+      "React",
+      "React Native",
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Redux",
+      "Shadcn UI",
+      "Ant Design",
+      "Bootstrap",
+    ],
   },
   {
     category: "Backend",
     icon: "⚙️",
-    skills: ["Node.js", "Nest Js", "Express", "Python", "PostgreSQL", "MongoDB"],
+    skills: [
+      "Node.js",
+      "Nest Js",
+      "Express",
+      "Python",
+      "PostgreSQL",
+      "MongoDB",
+    ],
   },
   {
     category: "DevOps",
     icon: "🚀",
-    skills: ["Docker", "AWS", "CI/CD", "Git", "Linux", "Nginx","Terraform","Kubernetes","Ansible","Jenkins","Azure","GitHub Actions"],
+    skills: [
+      "Docker",
+      "AWS",
+      "CI/CD",
+      "Git",
+      "Linux",
+      "Nginx",
+      "Terraform",
+      "Kubernetes",
+      "Ansible",
+      "Jenkins",
+      "Azure",
+      "GitHub Actions",
+    ],
   },
   {
     category: "Tools",
     icon: "🛠️",
     skills: ["VS Code", "Postman", "Figma", "Jest", "GitHub", "Vercel"],
   },
-]
+];
