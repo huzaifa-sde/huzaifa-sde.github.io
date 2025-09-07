@@ -416,7 +416,7 @@ export const educationItems = [
   {
     title: "Bachelor of Computer Science",
     institution: "SZABIST University",
-    period: "01/2021 - 01/2025",
+    period: "01/2021 - 06/2025",
   },
   {
     title: "Modern Web Application",
@@ -433,9 +433,20 @@ export const educationItems = [
 export const experienceItems = [
   {
     title: "Software Engineer",
+    company: "NUCLEUS SOLUTIONS",
+    location: "Karachi, Pakistan",
+    period: "06/2025 - Present",
+    responsibilities: [
+      "Developed and maintained web applications using React, Node.js, and MongoDB.",
+      "Collaborated with cross-functional teams to design and implement new features.",
+      "Implemented responsive design and ensured cross-browser compatibility.",
+    ],
+  },
+  {
+    title: "MERN STACK Developer",
     company: "SAYLANI TECH LIMITED",
     location: "Karachi, Pakistan",
-    period: "10/2024 - Present",
+    period: "11/2024 - 06/2025",
     responsibilities: [
       "Led Development Team: Managed frontend and backend development, ensuring smooth project execution.",
       "Project & Task Management: Organized meetings, assigned tasks, and tracked progress.",
