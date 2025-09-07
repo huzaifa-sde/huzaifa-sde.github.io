@@ -48,7 +48,7 @@ export function Navbar() {
           >
             <Link
               target="_blank"
-              href="/assets/resume/Huzaifa_Ali_Resume.pdf"
+              href="/assets/resume/huzaifa_resume.pdf"
               // download="Huzaifa_Ali_Resume.pdf"
             >
               <svg
