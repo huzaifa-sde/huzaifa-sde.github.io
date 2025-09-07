@@ -432,16 +432,19 @@ export const educationItems = [
 
 export const experienceItems = [
   {
-    title: "Software Engineer",
-    company: "NUCLEUS SOLUTIONS",
-    location: "Karachi, Pakistan",
-    period: "06/2025 - Present",
-    responsibilities: [
-      "Developed and maintained web applications using React, Node.js, and MongoDB.",
-      "Collaborated with cross-functional teams to design and implement new features.",
-      "Implemented responsive design and ensured cross-browser compatibility.",
-    ],
-  },
+    "title": "Software Engineer",
+    "company": "Nucleus Solutions",
+    "location": "Karachi, Pakistan",
+    "period": "06/2025 – Present",
+    "responsibilities": [
+      "Develop modern React-based dashboards, responsive websites, and cross-platform mobile applications (React Native), ensuring high performance and seamless user experience across devices.",
+      "Design and implement secure, scalable Node.js backend services with PostgreSQL, optimizing APIs and database queries to handle large datasets and improve response times.",
+      "Integrate and maintain third-party APIs (CMS, GHL, Google APIs), enabling automation, reporting, and extended functionality that reduces manual work and enhances business workflows.",
+      "Manage collaborative Git workflows and CI/CD pipelines for automated deployments, ensuring smooth releases and minimizing downtime in production environments.",
+      "Provide production support and conduct continuous performance optimization, proactively identifying and resolving bottlenecks to improve system stability and scalability."
+    ]
+  }
+  ,
   {
     title: "MERN STACK Developer",
     company: "SAYLANI TECH LIMITED",
