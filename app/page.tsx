@@ -1,12 +1,19 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Twitter, Phone, Check, CheckCircle } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Twitter,
+  Phone,
+  Check,
+  CheckCircle,
+} from "lucide-react";
 import Link from "next/link";
 import ContactForm from "./components/contact-form";
 import ProjectCard from "./components/project-card";
 import TechStack from "./components/tech-stack";
-import ProfileImage from "./components/profile-image";
 import EducationTree from "./components/education-tree";
 import ExperienceTimeline from "./components/experience-timeline";
 import WhatsAppModal from "./components/whatsapp-modal";
@@ -14,13 +21,14 @@ import { useState } from "react";
 import CertificationSection from "./components/certification-section";
 import WebModal from "./components/web-modal";
 import MobileModal from "./components/mobile-modal";
-import {Navbar} from "./components/navbar";
+import { Navbar } from "./components/navbar";
 import {
   educationItems,
   experienceItems,
   projects,
   certifications,
 } from "./lib/data";
+import HeroSection from "./components/hero-section";
 
 type Project = {
   title: string;
@@ -58,115 +66,7 @@ export default function Page() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        <section id="about" className="relative py-20 md:py-32 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-background z-0"></div>
-          <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] opacity-5 z-0"></div>
-          <div className="container relative z-10 px-4 md:px-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-              <div className="space-y-6 max-w-2xl">
-                <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                 <CheckCircle className="inline-block h-5 w-5 mr-2 text-green-500" />
-                  Available for freelance work
-                </div>
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl/none">
-                  <span className="block">Hi, I'm Huzaifa Ali</span>
-                  <span className="block mt-2 text-primary">
-                    Software Engineer
-                  </span>
-                </h1>
-                <p className="text-lg text-muted-foreground md:text-xl">
-                  Building digital experiences with modern technologies. Focused
-                  on creating elegant solutions to complex problems with a
-                  passion for clean code and user-centered design.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button
-                    size="lg"
-                    className="rounded-full"
-                    onClick={() => {
-                      const projectsSection =
-                        document.getElementById("projects");
-                      if (projectsSection) {
-                        projectsSection.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
-                  >
-                    View Projects
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="rounded-full"
-                    onClick={scrollToContact}
-                  >
-                    Contact Me
-                  </Button>
-                </div>
-                <div className="flex items-center gap-4 pt-4">
-                  <Link href="https://github.com/huzaifalidev" target="_blank">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full h-10 w-10"
-                    >
-                      <Github className="h-5 w-5" />
-                      <span className="sr-only">GitHub</span>
-                    </Button>
-                  </Link>
-                  <Link
-                    href="https://linkedin.com/in/huzaifa-ali-09aa38247"
-                    target="_blank"
-                  >
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full h-10 w-10"
-                    >
-                      <Linkedin className="h-5 w-5" />
-                      <span className="sr-only">LinkedIn</span>
-                    </Button>
-                  </Link>
-                  <Link href="https://x.com/Aleekhan_48" target="_blank">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full h-10 w-10"
-                    >
-                      <Twitter className="h-5 w-5" />
-                      <span className="sr-only">Twitter</span>
-                    </Button>
-                  </Link>
-                  <Link href="mailto:huzaifalikhan48@gmail.com">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full h-10 w-10"
-                    >
-                      <Mail className="h-5 w-5" />
-                      <span className="sr-only">Email</span>
-                    </Button>
-                  </Link>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="rounded-full h-10 w-10"
-                    onClick={() => setWhatsappModalOpen(true)}
-                  >
-                    <Phone className="h-5 w-5" />
-                    <span className="sr-only">WhatsApp</span>
-                  </Button>
-                </div>
-              </div>
-              <ProfileImage
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/HuzaifaDp.jpg-Q2HbmbTIASKMMO8X86orUJseFD8Wxn.jpeg"
-                alt="Huzaifa Ali"
-                width={400}
-                height={600}
-              />
-            </div>
-          </div>
-        </section>
-
+        <HeroSection />
         <section id="education" className="py-20 md:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-12 text-center">
