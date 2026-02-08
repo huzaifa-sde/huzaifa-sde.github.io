@@ -18,6 +18,7 @@ interface ProjectData {
         category: string;
       }>;
   link: string;
+  linkLabel?: string;
   tags: string[];
   showModal?: boolean;
   isMobileApp?: boolean;
@@ -36,6 +37,7 @@ export default function ProjectCard({
 
   const { title, description, images, link, tags, showModal, isMobileApp } =
     project;
+  const linkLabel = project.linkLabel ?? (isMobileApp ? "Repository" : "Live Demo");
 
   // Get the main image (first image or URL from complex image object)
   const mainImage =
@@ -45,13 +47,24 @@ export default function ProjectCard({
         : images[0].url
       : "/placeholder.svg";
 
+  const handleCardClick = () => {
+    if (showModal && onOpenModal) {
+      onOpenModal();
+      return;
+    }
+
+    if (link) {
+      window.open(link, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <>
       <Card
-        className="overflow-hidden group transition-all duration-300 hover:shadow-lg border-muted hover:border-primary/20 cursor-pointer"
+        className="overflow-hidden group transition-all duration-300 hover:shadow-xl border-muted hover:border-primary/30 cursor-pointer bg-card/80 backdrop-blur-sm"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={() => showModal && onOpenModal && onOpenModal()}
+        onClick={handleCardClick}
       >
         <div className="relative aspect-video overflow-hidden">
           <Image
@@ -74,19 +87,20 @@ export default function ProjectCard({
             </div>
           )}
 
-          {showModal && isMobileApp ? (
-            <div className="absolute bottom-3 right-3 bg-white/90 dark:bg-gray-800/90 text-foreground rounded-full px-3 py-1 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5">
-              <Smartphone className="h-3 w-3" />
-              View Screenshots
-            </div>
-          ) : (
-            <div className="absolute bottom-3 right-3 bg-white/90 dark:bg-gray-800/90 text-foreground rounded-full px-3 py-1 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span className="flex items-center gap-1.5">
+          <div className="absolute bottom-3 right-3 bg-white/90 dark:bg-gray-800/90 text-foreground rounded-full px-3 py-1 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span className="flex items-center gap-1.5">
+              {showModal && isMobileApp ? (
+                <Smartphone className="h-3 w-3" />
+              ) : (
                 <Monitor className="h-3 w-3" />
-                View Project
-              </span>
-            </div>
-          )}
+              )}
+              {showModal && isMobileApp
+                ? "View Screenshots"
+                : showModal
+                ? "View Project"
+                : linkLabel}
+            </span>
+          </div>
         </div>
         <CardContent className="p-6">
           <h3 className="font-semibold text-xl mb-3 group-hover:text-primary transition-colors">
@@ -113,7 +127,7 @@ export default function ProjectCard({
               onClick={(e) => e.stopPropagation()}
             >
               <Server className="h-4 w-4" />
-              Live Demo
+              {linkLabel}
             </Link>
           </CardFooter>
         ) : (
@@ -125,7 +139,7 @@ export default function ProjectCard({
               onClick={(e) => e.stopPropagation()}
             >
               <Github className="h-4 w-4" />
-              Repository
+              {linkLabel}
             </Link>
           </CardFooter>
         )}

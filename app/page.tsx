@@ -42,6 +42,7 @@ type Project = {
         category: string;
       }>;
   link: string;
+  linkLabel?: string;
   tags: string[];
   showModal?: boolean;
   isMobileApp?: boolean;

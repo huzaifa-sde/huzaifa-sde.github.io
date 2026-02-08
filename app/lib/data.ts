@@ -272,6 +272,39 @@ export const projects = [
     isMobileApp: false,
   },
   {
+    title: "CIET School Landing Website",
+    description:
+      "A modern school website presenting programs, admissions, highlights, and contact details for CIET School.",
+    images: ["/placeholder.svg"],
+    link: "https://www.cietschool.com/",
+    tags: ["Education", "Landing Page", "Brand Presence"],
+    linkLabel: "Live Site",
+    showModal: false,
+    isMobileApp: false,
+  },
+  {
+    title: "CIET School LMS",
+    description:
+      "Secure LMS portal for students and staff with course access, assignments, and learning resources.",
+    images: ["/placeholder.svg"],
+    link: "https://lms.cietschool.com/auth/signin",
+    tags: ["LMS", "Education", "Portal"],
+    linkLabel: "Open LMS",
+    showModal: false,
+    isMobileApp: false,
+  },
+  {
+    title: "Desi Eatry Cloud Kitchen",
+    description:
+      "Cloud kitchen system for order management, billing, and expense tracking.",
+    images: ["/placeholder.svg"],
+    link: "https://desi-eatry.huzaifali.tech/",
+    tags: ["Cloud Kitchen", "Ordering", "Billing", "Expenses"],
+    linkLabel: "Live Demo",
+    showModal: false,
+    isMobileApp: false,
+  },
+  {
     title: "Multi-tier HA & Scalable AWS Infrastructure",
     description:
       "Deployed a highly available and scalable web application on AWS EC2 instances with Elastic Load Balancer, utilizing multiple availability zones for high reliability and fault tolerance.",
