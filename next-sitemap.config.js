@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://www.huzaifali.tech",
+  siteUrl: "https://huzaifa-sde.github.io",
   generateRobotsTxt: true,
   changefreq: "weekly",
   priority: 0.8,
